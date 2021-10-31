@@ -1,2 +1,2 @@
 # gogogo
-Magic Playground
+Magic GO Playground
