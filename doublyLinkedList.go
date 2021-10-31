@@ -1,3 +1,10 @@
+/*
+Pointers are not thread save so the functionality should not
+be used with Go routines since they multiplex onto OS threads.
+
+TODO: Try to use RWMutex ?
+*/
+
 package main
 
 import (
