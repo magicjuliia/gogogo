@@ -2,7 +2,10 @@
 Pointers are not thread save so the functionality should not
 be used with Go routines since they multiplex onto OS threads.
 
-TODO: Try to use RWMutex ?
+Actionable items:
+- try to use RWMutex
+- use array indexes instead of pointers
+- read about tail-recursion in Go
 */
 
 package main
@@ -15,6 +18,19 @@ type toDoItem struct {
 	text     string
 	nextItem *toDoItem
 	prevItem *toDoItem
+}
+
+func test() {
+
+	item1 := toDoItem{"call my dentist", nil, nil}
+	item2 := toDoItem{"go grocery shopping", nil, nil}
+	item3 := toDoItem{"clean kitchen", nil, nil}
+
+	addItem(&item2, &item3)
+	addItem(&item1, &item2)
+	// removeItem(&item1)
+	printToDoList(&item1)
+	// printToDoListInReverce(&item3)
 }
 
 func main() {
